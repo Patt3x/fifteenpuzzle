@@ -1,30 +1,29 @@
-var y = 0;
-var z = 0;
-var column = new Array();
-var row = new Array();
-var moves = 0;
+let y = 0, z = 0;
+let column = new Array();
+let row = new Array();
+let moves = 0;
 
-window.onload = function()
+window.onload = ()=>
 {	
-	var left = "300px";
-	var top = "300px";
-	var puzz = $$('div#puzzlearea div');
-	var shake = $("shufflebutton");	
+	let left = "300px";
+	let top = "300px";
+	let puzz = $$('div#puzzlearea div');
+	let shake = $("shufflebutton");	
 	
 	puzzleDraw(puzz);
 	shake.addEventListener("click",function(){shuffle();},false);
 
-	var options = new Array();//array for blocks with valid moves
-	var opt = 0;//option randomly generated
-	var prev;
+	const options = new Array();//array for blocks with valid moves
+	let opt = 0;//option randomly generated
+	let prev;
 
 	shuffle();
 
 	function shuffle()
 	{
-		for(var j = 0; j < 500; j++)
+		for(let j = 0; j < 500; j++)
 		{
-			for(var i = 0; i < puzz.length; i++)
+			for(let i = 0; i < puzz.length; i++)
 			{
 				if((puzz[i].style.top === top && Math.abs(parseInt(puzz[i].style.left) - parseInt(left)) === 100) || (puzz[i].style.left === left && Math.abs(parseInt(puzz[i].style.top) - parseInt(top)) === 100))
 				{
@@ -49,8 +48,8 @@ window.onload = function()
 
 	function move(buzz) 
 	{
-		var templeft = left;
-		var temptop = top;
+		const templeft = left;
+		const temptop = top;
 
 		if((buzz.style.top === top && Math.abs(parseInt(buzz.style.left) - parseInt(left)) === 100) || (buzz.style.left === left && Math.abs(parseInt(buzz.style.top) - parseInt(top)) === 100))
 		{
